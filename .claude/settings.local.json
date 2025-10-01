@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mysqladmin ping:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
