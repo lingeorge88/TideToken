@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 public class Withdrawal {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
