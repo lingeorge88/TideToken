@@ -38,6 +38,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { sendMessage } from "@/Redux/Chat/Action";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import SpinnerBackdrop from "@/components/custome/SpinnerBackdrop";
+import seahorseLogo from "@/assets/seahorselogo.png";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -238,7 +239,7 @@ const Home = () => {
         {isBotRelease && (
           <div className="rounded-md w-[20rem]  md:w-[25rem] lg:w-[25rem] h-[70vh] bg-slate-900">
             <div className="flex justify-between items-center border-b px-6 h-[12%]">
-              <p>Chat Bot</p>
+              <p>Seahorse Companion</p>
               <Button onClick={handleBotRelease} size="icon" variant="ghost">
                 <Cross1Icon />
               </Button>
@@ -252,9 +253,9 @@ const Home = () => {
                   } pb-5 w-auto`}
                 >
                   <div className="justify-end self-end px-5 py-2 rounded-md bg-slate-800 w-auto">
-                      {`hi, ${auth.user?.fullName}`}
-                      <p>you can ask crypto related any question</p>
-                      <p>like, price, market cap extra...</p>
+                      {`Hello, ${auth.user?.fullName}`}
+                      <p>I am your personal trade assistant here to help you answer questions</p>
+                      <p>regarding, price, trend, market cap and more...</p>
                     </div>
                   
                 </div>
@@ -286,7 +287,7 @@ const Home = () => {
             <div className="h-[12%] border-t">
               <Input
                 className="w-full h-full border-none outline-none"
-                placeholder="write prompt"
+                placeholder="Get started by asking me a question..."
                 onChange={handleChange}
                 value={inputValue}
                 onKeyPress={handleKeyPress}
@@ -296,21 +297,16 @@ const Home = () => {
         )}
         <div
           onClick={handleBotRelease}
-          className="relative w-[10rem] cursor-pointer group"
+          className="relative cursor-pointer group"
         >
-          <Button  className="w-full h-[3rem] gap-2 items-center">
-            
-            <MessageCircle
-            fill=""
-            className="fill-[#1e293b] -rotate-[90deg] stroke-none group-hover:fill-[#1a1a1a] "
-            size={30}
-          />
-          
-          <span className=" text-2xl">
-            Chat Bot
+          <Button  className="h-[3rem] gap-2 items-center rounded-full bg-celestial-blue text-white px-4">
+              <img src={seahorseLogo} alt="seahorse" className="h-8 w-8" />
+
+          <span className="text-lg whitespace-nowrap">
+            Seahorse Companion
           </span>
           </Button>
-          
+
         </div>
       </section>
     </div>

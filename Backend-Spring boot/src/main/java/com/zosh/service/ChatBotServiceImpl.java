@@ -139,20 +139,27 @@ public class ChatBotServiceImpl implements ChatBotService{
 
         ReadContext ctx = JsonPath.parse(responseBody);
 
-        // Extract specific values
-        String currencyName = ctx.read("$.candidates[0].content.parts[0].functionCall.args.currencyName");
-        String currencyData = ctx.read("$.candidates[0].content.parts[0].functionCall.args.currencyData");
-        String name = ctx.read("$.candidates[0].content.parts[0].functionCall.name");
+        // Check if response contains a function call
+        try {
+            // Extract specific values
+            String currencyName = ctx.read("$.candidates[0].content.parts[0].functionCall.args.currencyName");
+            String currencyData = ctx.read("$.candidates[0].content.parts[0].functionCall.args.currencyData");
+            String name = ctx.read("$.candidates[0].content.parts[0].functionCall.name");
 
-        // Print the extracted values
-        FunctionResponse res=new FunctionResponse();
-        res.setCurrencyName(currencyName);
-        res.setCurrencyData(currencyData);
-        res.setFunctionName(name);
+            // Print the extracted values
+            FunctionResponse res=new FunctionResponse();
+            res.setCurrencyName(currencyName);
+            res.setCurrencyData(currencyData);
+            res.setFunctionName(name);
 
-        System.out.println(name +" ------- "+currencyName+"-----"+currencyData);
+            System.out.println(name +" ------- "+currencyName+"-----"+currencyData);
 
-        return res;
+            return res;
+        } catch (Exception e) {
+            // No function call in response, return null
+            System.out.println("No function call in response, will use simple chat");
+            return null;
+        }
     }
 
 
@@ -162,6 +169,17 @@ public class ChatBotServiceImpl implements ChatBotService{
     public ApiResponse getCoinDetails(String prompt) {
 
         FunctionResponse res=getFunctionResponse(prompt);
+
+        // If no function call was made, return simple chat response
+        if (res == null || res.getFunctionName() == null) {
+            String simpleResponse = simpleChat(prompt);
+            ReadContext ctx = JsonPath.parse(simpleResponse);
+            String text = ctx.read("$.candidates[0].content.parts[0].text");
+            ApiResponse ans = new ApiResponse();
+            ans.setMessage(text);
+            return ans;
+        }
+
         String apiResponse=makeApiRequest(res.getCurrencyName()).toString();
 
 

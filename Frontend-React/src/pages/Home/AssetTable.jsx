@@ -323,7 +323,7 @@ export function AssetTable({ coins, category }) {
             <TableHead>SYMBOL</TableHead>
             <TableHead>VOLUME</TableHead>
             <TableHead>MARKET CAP</TableHead>
-            <TableHead>24H</TableHead>
+            <TableHead>24H Change</TableHead>
             <TableHead className="text-right">PRICE</TableHead>
           </TableRow>
         </TableHeader>
@@ -353,7 +353,7 @@ export function AssetTable({ coins, category }) {
               >
                 {item.market_cap_change_percentage_24h}%
               </TableCell>
-              <TableCell className="text-right">{item.current_price}</TableCell>
+              <TableCell className="text-right">${item.current_price}</TableCell>
 
               {/* market_cap_change_percentage_24h */}
             </TableRow>

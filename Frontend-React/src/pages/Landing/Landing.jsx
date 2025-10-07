@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
-  TrendingUp,
+  Bitcoin,
   Shield,
   Smartphone,
   DollarSign,
@@ -16,7 +16,7 @@ import {
   Coins,
   Percent,
   BookOpen,
-  GraduationCap,
+    CircleDollarSign,
   FileText,
   TrendingDown,
 } from "lucide-react";
@@ -332,7 +332,7 @@ const Landing = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-sky-blue/10 to-white border-2 border-gray-200 rounded-2xl p-8 hover:border-sky-blue hover:shadow-lg transition-all">
               <div className="w-14 h-14 bg-sky-blue/20 rounded-xl flex items-center justify-center mb-6">
-                <BookOpen className="w-7 h-7 text-celestial-blue" />
+                <Bitcoin className="w-7 h-7 text-celestial-blue" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 What is Cryptocurrency?
@@ -358,7 +358,7 @@ const Landing = () => {
 
             <div className="bg-gradient-to-br from-sky-blue/10 to-white border-2 border-gray-200 rounded-2xl p-8 hover:border-sky-blue hover:shadow-lg transition-all">
               <div className="w-14 h-14 bg-sky-blue/20 rounded-xl flex items-center justify-center mb-6">
-                <GraduationCap className="w-7 h-7 text-celestial-blue" />
+                <CircleDollarSign className="w-7 h-7 text-celestial-blue" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 How Does Trading Work?

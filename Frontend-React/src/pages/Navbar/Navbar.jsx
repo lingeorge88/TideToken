@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import seahorseLogo from "@/assets/seahorselogo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -47,14 +48,15 @@ const Navbar = () => {
             >
               <SheetHeader>
                 <SheetTitle>
-                  <div className="text-3xl flex justify-center  items-center gap-1">
-                    <Avatar className="h-10 w-10">
-                      <AvatarImage src="https://cdn.pixabay.com/photo/2021/04/30/16/47/binance-logo-6219389_1280.png" />
+                  <div className="text-xl flex justify-center items-center gap-1">
+                    <Avatar className="h-12 w-12">
+                      <AvatarImage src={seahorseLogo} alt="seahorseLogo" />
                     </Avatar>
-                    <div>
-                      <span className="font-bold text-blue-600">BlueCurrent</span>
-                      <span>Trade</span>
-                    </div>
+                    <span className="font-semibold text-celestial-blue">BlueCurrent</span>
+                    <span className="font-semibold text-white">Trading</span>
+                    <Avatar className="h-12 w-12">
+                      <AvatarImage src={seahorseLogo} alt="seahorseLogo" />
+                    </Avatar>
                   </div>
                 </SheetTitle>
               </SheetHeader>
@@ -64,9 +66,9 @@ const Navbar = () => {
 
           <p
             onClick={() => navigate("/")}
-            className="text-sm lg:text-base cursor-pointer"
+            className="text-celestial-blue text-lg cursor-pointer"
           >
-            BlueCurrent Trading
+            BlueCurrent
           </p>
           <div className="p-0 ml-9">
             <Button

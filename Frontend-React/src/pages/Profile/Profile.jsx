@@ -42,7 +42,7 @@ const Profile = () => {
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Full Name : </p>
-                  <p className="text-gray-500">{"code with zosh"} </p>
+                  <p className="text-gray-500">{auth.user?.fullName} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Date Of Birth : </p>
@@ -50,25 +50,25 @@ const Profile = () => {
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Nationality : </p>
-                  <p className="text-gray-500">{"indian"} </p>
+                  <p className="text-gray-500">{"USA"} </p>
                 </div>
               </div>
               <div className="space-y-7">
                 <div className="flex">
                   <p className="w-[9rem]">Address : </p>
-                  <p className="text-gray-500">{"code with zosh"} </p>
+                  <p className="text-gray-500">{"123 Main Street"} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">City : </p>
-                  <p className="text-gray-500">{"mumbai"} </p>
+                  <p className="text-gray-500">{"New York"} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Postcode : </p>
-                  <p className="text-gray-500">{345020} </p>
+                  <p className="text-gray-500">{10001} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Country : </p>
-                  <p className="text-gray-500">{"india"} </p>
+                  <p className="text-gray-500">{"USA"} </p>
                 </div>
               </div>
             </div>
