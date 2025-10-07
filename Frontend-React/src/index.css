@@ -72,6 +72,7 @@
   }
   body {
     @apply dark bg-background text-foreground overflow-x-hidden;
+    font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
   }
 }
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 const DEPLOYED='https://tidetoken-spring.onrender.com'
 const LOCALHOST='http://localhost:5454'
 
-export const API_BASE_URL = DEPLOYED
+export const API_BASE_URL = window.location.hostname === 'localhost' ? LOCALHOST : DEPLOYED
 
 const api = axios.create({
   baseURL: API_BASE_URL,

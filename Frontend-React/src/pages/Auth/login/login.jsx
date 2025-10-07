@@ -42,37 +42,44 @@ const LoginForm = () => {
     console.log("login form", data);
   };
   return (
-    <div className="space-y-5">
-      <h1 className="text-center text-xl">Login</h1>
+    <div className="space-y-6">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
                 <FormControl>
                   <Input
                     {...field}
-                    className="border w-full border-gray-700 py-5 px-5"
-                    placeholder="enter your email"
+                    id="email"
+                    type="email"
+                    className="border w-80 border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-celestial-blue focus:border-celestial-blue"
+                    placeholder="Enter your email"
                   />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
           />
           <FormField
             control={form.control}
-            name="password" // Added password field
+            name="password"
             render={({ field }) => (
               <FormItem>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  Password
+                </label>
                 <FormControl>
                   <Input
                     {...field}
-                    type="password" // Added type attribute for password input
-                    className="border w-full border-gray-700 py-5 px-5"
+                    id="password"
+                    type="password"
+                    className="border w-80 border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-celestial-blue focus:border-celestial-blue"
                     placeholder="Enter your password"
                   />
                 </FormControl>
@@ -81,21 +88,28 @@ const LoginForm = () => {
             )}
           />
 
+          <div className="text-left">
+            <button
+              type="button"
+              onClick={() => navigate("/forgot-password")}
+              className="text-sm text-celestial-blue hover:text-persian-blue font-medium"
+            >
+              Forgot Password?
+            </button>
+          </div>
+
           {!auth.loading ? (
-            <Button type="submit" className="w-full  py-5">
-              Login
+            <Button
+              type="submit"
+              className="w-80 py-3 bg-celestial-blue hover:bg-persian-blue text-white rounded-full font-medium"
+            >
+              Log In
             </Button>
           ) : (
             <SpinnerBackdrop show={true} />
           )}
         </form>
       </Form>
-
-      {/* {toast({
-        title: "Scheduled: Catch up ",
-        description: "Friday, February 10, 2023 at 5:57 PM",
-        action: <ToastAction altText="Goto schedule to undo">Undo</ToastAction>,
-      })} */}
     </div>
   );
 };

@@ -22,6 +22,7 @@ import WithdrawalAdmin from "./Admin/Withdrawal/WithdrawalAdmin";
 import Activity from "./pages/Activity/Activity";
 import SearchCoin from "./pages/Search/Search";
 import { shouldShowNavbar } from "./Util/shouldShowNavbar";
+import Landing from "./pages/Landing/Landing";
 
 
 const routes = [
@@ -56,8 +57,8 @@ dispatch(getUser(localStorage.getItem("jwt")))
         <>
          {showNavbar && <Navbar />}
           <Routes>
+            <Route element={<Home />} path="/home" />
             <Route element={<Home />} path="/" />
-            
             <Route element={<Portfolio />} path="/portfolio" />
             <Route element={<Activity />} path="/activity" />
             <Route element={<Wallet />} path="/wallet" />
@@ -70,13 +71,13 @@ dispatch(getUser(localStorage.getItem("jwt")))
             <Route element={<SearchCoin />} path="/search" />
             {auth.user.role=="ROLE_ADMIN"&&<Route element={<WithdrawalAdmin />} path="/admin/withdrawal" />}
             <Route element={<Notfound />} path="*" />
-            
+
           </Routes>
         </>
       ) : (
         <>
           <Routes>
-            <Route element={<Auth />} path="/" />
+            <Route element={<Landing />} path="/" />
             <Route element={<Auth />} path="/signup" />
             <Route element={<Auth />} path="/signin" />
             <Route element={<Auth />} path="/forgot-password" />

@@ -43,20 +43,23 @@ const SignupForm = () => {
     console.log("signup form", data);
   };
   return (
-    <div className="space-y-5">
-       <h1 className="text-center text-xl">Create New Account</h1>
+    <div className="space-y-6">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="fullName"
             render={({ field }) => (
               <FormItem>
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name
+                </label>
                 <FormControl>
                   <Input
                     {...field}
+                    id="fullName"
                     type="text"
-                    className="border w-full border-gray-700 py-5 px-5"
+                    className="border w-80 border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-celestial-blue focus:border-celestial-blue"
                     placeholder="Enter your full name"
                   />
                 </FormControl>
@@ -69,14 +72,18 @@ const SignupForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
                 <FormControl>
                   <Input
                     {...field}
-                    className="border w-full border-gray-700 py-5 px-5"
-                    placeholder="enter your email"
+                    id="email"
+                    type="email"
+                    className="border w-80 border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-celestial-blue focus:border-celestial-blue"
+                    placeholder="Enter your email"
                   />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
@@ -86,11 +93,15 @@ const SignupForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  Password
+                </label>
                 <FormControl>
                   <Input
                     {...field}
-                    type="password" 
-                    className="border w-full border-gray-700 py-5 px-5"
+                    id="password"
+                    type="password"
+                    className="border w-80 border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-celestial-blue focus:border-celestial-blue"
                     placeholder="Enter your password"
                   />
                 </FormControl>
@@ -98,8 +109,11 @@ const SignupForm = () => {
               </FormItem>
             )}
           />
-         {!auth.loading? <Button type="submit" className="w-full  py-5">
-            Register
+         {!auth.loading? <Button
+            type="submit"
+            className="w-80 py-3 bg-celestial-blue hover:bg-persian-blue text-white rounded-full font-medium"
+          >
+            Sign Up
           </Button>:<SpinnerBackdrop show={true}/>}
         </form>
       </Form>
