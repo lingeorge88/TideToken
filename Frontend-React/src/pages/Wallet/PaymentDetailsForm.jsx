@@ -66,7 +66,7 @@ const PaymentDetailsForm = () => {
                   <Input
                     {...field}
                     className="border w-full border-gray-700 py-5 px-5"
-                    placeholder="code with zosh"
+                    placeholder="Cardholder Fullname"
                   />
                 </FormControl>
 
@@ -80,13 +80,13 @@ const PaymentDetailsForm = () => {
             name="ifsc"
             render={({ field }) => (
               <FormItem>
-                <Label>IFSC Code</Label>
+                <Label>SWIFT Code</Label>
                 <FormControl>
                   <Input
                     {...field}
                     name="ifsc"
                     className="border w-full border-gray-700 py-5 px-5"
-                    placeholder="YESB0000009"
+                    placeholder="AAAABBCCDDD"
                   />
                 </FormControl>
 

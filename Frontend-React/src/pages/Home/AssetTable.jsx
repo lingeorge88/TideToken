@@ -319,12 +319,12 @@ export function AssetTable({ coins, category }) {
       <ScrollArea className={category == "all" ? "h-[74vh]" : "h-[82vh]"}>
         <TableHeader>
           <TableRow className="sticky top-0 left-0 right-0 bg-background">
-            <TableHead className="py-4">Coin</TableHead>
+            <TableHead className="py-4 pl-4">Coin</TableHead>
             <TableHead>SYMBOL</TableHead>
             <TableHead>VOLUME</TableHead>
             <TableHead>MARKET CAP</TableHead>
             <TableHead>24H Change</TableHead>
-            <TableHead className="text-right">PRICE</TableHead>
+            <TableHead className="text-right pr-4">PRICE</TableHead>
           </TableRow>
         </TableHeader>
 
