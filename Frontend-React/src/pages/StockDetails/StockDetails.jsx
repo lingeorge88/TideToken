@@ -116,12 +116,12 @@ const StockDetails = () => {
 
               <Dialog>
                 <DialogTrigger>
-                  <Button size="lg">TREAD</Button>
+                  <Button size="lg">TRADE</Button>
                 </DialogTrigger>
                 <DialogContent className="">
                   <DialogHeader className="">
                     <DialogTitle className="px-10 pt-5 text-center">
-                      how much do you want to spend?
+                      How much would you like to invest?
                     </DialogTitle>
                   </DialogHeader>
                   <TreadingForm />

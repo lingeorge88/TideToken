@@ -4,6 +4,8 @@ import {
   AvatarIcon,
   DragHandleHorizontalIcon,
   MagnifyingGlassIcon,
+  PersonIcon,
+  ExitIcon,
 } from "@radix-ui/react-icons";
 import SideBar from "../SideBar/SideBar";
 import {
@@ -13,14 +15,23 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "@/Redux/Auth/Action";
 import seahorseLogo from "@/assets/seahorselogo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { auth } = useSelector((store) => store);
 
   const handleNavigate=()=>{
@@ -28,6 +39,11 @@ const Navbar = () => {
       auth.user.role==="ROLE_ADMIN"?navigate("/admin/withdrawal"):navigate("/profile")
     }
   }
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
   return (
     <>
       <div className="px-2 py-3 border-b z-50 bg-background bg-opacity-0 sticky top-0 left-0 right-0 flex justify-between items-center">
@@ -66,7 +82,7 @@ const Navbar = () => {
 
           <p
             onClick={() => navigate("/")}
-            className="text-celestial-blue text-lg cursor-pointer"
+            className="text-celestial-blue text-xl font-semibold cursor-pointer"
           >
             BlueCurrent
           </p>
@@ -83,13 +99,34 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-          <Avatar className="cursor-pointer" onClick={handleNavigate}>
-            {!auth.user ? (
-              <AvatarIcon className=" h-8 w-8" />
-            ) : (
-              <AvatarFallback>{auth.user?.fullName[0].toUpperCase()}</AvatarFallback>
-            )}
-          </Avatar>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Avatar className="cursor-pointer">
+                {!auth.user ? (
+                  <AvatarIcon className=" h-8 w-8" />
+                ) : (
+                  <AvatarFallback>{auth.user?.fullName[0].toUpperCase()}</AvatarFallback>
+                )}
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem
+                onClick={() => navigate("/profile")}
+                className="cursor-pointer"
+              >
+                <PersonIcon className="mr-2 h-4 w-4" />
+                <span>Profile</span>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                onClick={handleLogout}
+                className="cursor-pointer text-red-600 focus:text-red-600"
+              >
+                <ExitIcon className="mr-2 h-4 w-4" />
+                <span>Logout</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </>

@@ -95,12 +95,12 @@ const TreadingForm = () => {
           <div className="flex items-center gap-2">
             <p>{coin.coinDetails?.symbol?.toUpperCase()}</p>
             <DotIcon className="text-gray-400" />
-            <p className="text-gray-400">{coin.coinDetails?.name}</p>
+            <p className="text-gray-400">24 Hour Market Cap Change</p>
           </div>
           <div className="flex items-end gap-2">
-            <p className="text-xl font-bold">
-              {coin.coinDetails?.market_data.current_price.usd}
-            </p>
+              <p className="text-xl font-bold">
+                  ${coin.coinDetails?.market_data.current_price.usd}
+              </p>
             <p
               className={`${
                 coin.coinDetails?.market_data.market_cap_change_24h < 0
@@ -108,9 +108,10 @@ const TreadingForm = () => {
                   : "text-green-600"
               }`}
             >
-              <span className="">
-                {coin.coinDetails?.market_data.market_cap_change_24h}
-              </span>
+
+                {/*<span className="">*/}
+                {/*{coin.coinDetails?.market_data.market_cap_change_24h}*/}
+              {/*</span>*/}
               <span>
                 ({coin.coinDetails?.market_data.market_cap_change_percentage_24h}%)
               </span>
@@ -124,7 +125,7 @@ const TreadingForm = () => {
         <p>Market Order</p>
       </div>
       <div className="flex items-center justify-between">
-        <p>{orderType == "BUY" ? "Available Case" : "Available Quantity"}</p>
+        <p>{orderType == "BUY" ? "Available Cash" : "Available Quantity"}</p>
         <div>
           {orderType == "BUY" ? (
             <div className="flex items-center ">

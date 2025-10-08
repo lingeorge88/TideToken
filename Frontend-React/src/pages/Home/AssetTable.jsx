@@ -315,7 +315,7 @@ export function AssetTable({ coins, category }) {
   const navigate = useNavigate();
 
   return (
-    <Table className="px-5  border-t relative">
+    <Table className="px-5 border-t relative">
       <ScrollArea className={category == "all" ? "h-[74vh]" : "h-[82vh]"}>
         <TableHeader>
           <TableRow className="sticky top-0 left-0 right-0 bg-background">
@@ -335,7 +335,7 @@ export function AssetTable({ coins, category }) {
               onClick={() => navigate(`/market/${item.id}`)}
               key={item.id}
             >
-              <TableCell className="font-medium flex items-center gap-2">
+              <TableCell className="font-medium flex items-center gap-2 pl-4">
                 <Avatar className="-z-50">
                   <AvatarImage src={item.image} alt={item.symbol} />
                 </Avatar>
@@ -353,7 +353,7 @@ export function AssetTable({ coins, category }) {
               >
                 {item.market_cap_change_percentage_24h}%
               </TableCell>
-              <TableCell className="text-right">${item.current_price}</TableCell>
+              <TableCell className="text-right pr-4">${item.current_price}</TableCell>
 
               {/* market_cap_change_percentage_24h */}
             </TableRow>

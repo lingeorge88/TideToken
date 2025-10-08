@@ -7,7 +7,7 @@ const fetchData = async (keyword,symbol) => {
         function: keyword,
         symbol: symbol,
         apikey: 'my api keyd', // Replace 'demo' with your actual API key
-        market:"EUR"
+        market:"USD"
       }
     });
 

@@ -206,10 +206,12 @@ const Home = () => {
                 <p>{coin.coinDetails?.symbol?.toUpperCase()}</p>
                 <DotIcon className="text-gray-400" />
                 <p className="text-gray-400">{coin.coinDetails?.name}</p>
+                  <DotIcon className="text-gray-400" />
+                  <p className="text-gray-400">24 Hour Market Cap Change</p>
               </div>
               <div className="flex items-end gap-2">
                 <p className="text-xl font-bold">
-                  {coin.coinDetails?.market_data.current_price.usd}
+                  ${coin.coinDetails?.market_data.current_price.usd}
                 </p>
                 <p
                   className={`${
@@ -218,8 +220,8 @@ const Home = () => {
                       : "text-green-600"
                   }`}
                 >
-                  <span className="">
-                    {coin.coinDetails?.market_data.market_cap_change_24h}
+                    <span className="">
+                    ${coin.coinDetails?.market_data.market_cap_change_24h}
                   </span>
                   <span>
                     (
@@ -299,10 +301,10 @@ const Home = () => {
           onClick={handleBotRelease}
           className="relative cursor-pointer group"
         >
-          <Button  className="h-[3rem] gap-2 items-center rounded-full bg-celestial-blue text-white px-4">
+          <Button  className="h-[3rem] gap-2 items-center rounded-full bg-celestial-blue text-white px-4 md:px-4 w-14 md:w-auto">
               <img src={seahorseLogo} alt="seahorse" className="h-8 w-8" />
 
-          <span className="text-lg whitespace-nowrap">
+          <span className="text-lg whitespace-nowrap hidden md:inline">
             Seahorse Companion
           </span>
           </Button>
