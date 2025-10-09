@@ -210,7 +210,7 @@ const Landing = () => {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             Invest in Your Future
             <span className="block text-celestial-blue mt-2">
-              One Trade at a Time
+              One Small Investment at a Time
             </span>
           </h1>
 
