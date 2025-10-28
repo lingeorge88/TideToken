@@ -288,7 +288,7 @@ const Home = () => {
 
             <div className="h-[12%] border-t">
               <Input
-                className="w-full h-full border-none outline-none"
+                className="w-full h-full border-none outline-none text-white"
                 placeholder="Get started by asking me a question..."
                 onChange={handleChange}
                 value={inputValue}
